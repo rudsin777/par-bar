@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Par-Bar - kafejnīca-bārs ar Latgales dvēseli, Daugavpils</title>
+<meta name="description" content="Par-Bar - kafejnīca-bārs Daugavpilī, Stacijas ielā 63. Šašliki uz oglēm, izlejamais alus, sporta tiešraides un banketu zāles svētkiem.">
+<meta name="theme-color" content="#161311">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Par-Bar - Daugavpils">
+<meta property="og:description" content="Kafejnīca-bārs ar Latgales dvēseli. Šašliki uz oglēm, alus un mājīga atmosfēra.">
+<meta property="og:image" content="img/bar-wall.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  (function(){
+    var d=document.documentElement; d.classList.add('js');
+    try{ var t=localStorage.getItem('parbar-theme'); if(t==='dark'||t==='light') d.setAttribute('data-theme',t); }catch(e){}
+    try{ var l=localStorage.getItem('parbar-lang'); if(l==='lv'||l==='ru'||l==='en') d.setAttribute('lang',l); }catch(e){}
+  })();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BarOrPub","name":"Par-Bar","servesCuisine":["Grill","Latvian","Caucasian"],
+"address":{"@type":"PostalAddress","streetAddress":"Stacijas iela 63","addressLocality":"Daugavpils","addressCountry":"LV"},
+"telephone":"+37120219338","url":"https://www.facebook.com/profile.php?id=61594905531083"}
+</script>
+<style>
+/* =========================================================
+   PAR-BAR - colours live here. Light is the default,
+   dark switches with [data-theme="dark"] on <html>.
+   ========================================================= */
+:root{
+  --paper:#F6F1E7;        /* page background, like the menu paper */
+  --card:#FFFDF8;
+  --soft:#EDE5D6;
+  --ink:#191512;
+  --ink-soft:#5E554C;
+  --line:rgba(25,21,18,.12);
+  --wine:#8C1D2B;         /* burgundy from their menu */
+  --wine-hover:#701521;
+  --on-wine:#FFF8EE;
+  --gold:#B48A4E;
+  --shadow:0 22px 44px -28px rgba(25,21,18,.45);
+  --shadow-soft:0 14px 30px -24px rgba(25,21,18,.35);
+  --head:'Oswald','Arial Narrow',Impact,sans-serif;
+  --body:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --fade:.35s;
+  --fade-theme:.5s;
+  --maxw:1180px;
+  --r:18px;
+  --hh:74px;
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --paper:#14110F;
+  --card:#1D1916;
+  --soft:#25201C;
+  --ink:#F3ECE1;
+  --ink-soft:#B3A898;
+  --line:rgba(243,236,225,.12);
+  --wine:#C2434F;
+  --wine-hover:#D4606B;
+  --on-wine:#FFF8EE;
+  --gold:#D1A867;
+  --shadow:0 22px 44px -28px rgba(0,0,0,.85);
+  --shadow-soft:0 14px 30px -24px rgba(0,0,0,.8);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;}
+html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 10px);}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background-color var(--fade-theme) ease,color var(--fade-theme) ease;}
+img,svg,video{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;}
+h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.08;letter-spacing:.01em;margin:0;text-transform:uppercase;}
+p{margin:0;}
+ul{margin:0;padding:0;list-style:none;}
+::selection{background:var(--wine);color:var(--on-wine);}
+:focus-visible{outline:2px solid var(--wine);outline-offset:3px;border-radius:6px;}
+
+/* every hover fades - nothing moves or scales */
+a,button,.btn,.card,.dish,.tab,.chip,.lang button,.icon-btn,.shot,.info,.inp,.opt{
+  transition:color var(--fade) ease,background-color var(--fade) ease,border-color var(--fade) ease,box-shadow var(--fade) ease,opacity var(--fade) ease,filter var(--fade) ease;
+}
+.wrap{width:min(var(--maxw),100% - 2.4rem);margin-inline:auto;}
+.section{padding:clamp(4.2rem,9vw,7rem) 0;position:relative;}
+.section.alt{background:var(--card);border-block:1px solid var(--line);transition:background-color var(--fade-theme) ease,border-color var(--fade-theme) ease;}
+.kicker{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--head);font-size:.82rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--wine);}
+.kicker svg{width:16px;height:16px;flex:none;}
+.sec-head{max-width:640px;margin-bottom:clamp(2.2rem,4vw,3.2rem);}
+.sec-head.center{margin-inline:auto;text-align:center;}
+.sec-head h2{font-size:clamp(2.1rem,5vw,3.4rem);margin:.8rem 0 1rem;}
+.sec-head p{color:var(--ink-soft);font-size:1.04rem;}
+.orn-line{display:flex;align-items:center;gap:1rem;color:var(--ink);opacity:.85;}
+.orn-line::before,.orn-line::after{content:"";height:2px;flex:1;background:linear-gradient(90deg,transparent,currentColor);}
+.orn-line::after{background:linear-gradient(90deg,currentColor,transparent);}
+.orn-line svg{width:26px;height:26px;}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.95rem 1.5rem;border-radius:999px;border:1.5px solid transparent;font-family:var(--head);font-weight:500;font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;line-height:1.1;white-space:nowrap;}
+.btn svg{width:18px;height:18px;flex:none;}
+.btn-wine{background:var(--wine);color:var(--on-wine);}
+.btn-wine:hover{background:var(--wine-hover);box-shadow:0 14px 28px -16px rgba(140,29,43,.7);}
+.btn-line{border-color:var(--line);color:var(--ink);}
+.btn-line:hover{border-color:var(--ink);background:var(--soft);}
+.btn-ghost-light{border-color:rgba(255,248,238,.55);color:#FFF8EE;}
+.btn-ghost-light:hover{background:rgba(255,248,238,.14);border-color:#FFF8EE;}
+
+/* ---------- header ---------- */
+.site-header{position:fixed;inset:0 0 auto 0;height:var(--hh);z-index:60;display:flex;align-items:center;background:transparent;border-bottom:1px solid transparent;transition:background-color var(--fade) ease,border-color var(--fade) ease,box-shadow var(--fade) ease;}
+.site-header.scrolled{background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-color:var(--line);}
+.site-header .wrap{display:flex;align-items:center;gap:1.6rem;}
+.brand{display:flex;align-items:center;flex:none;}
+.brand img{height:40px;width:auto;transition:filter var(--fade) ease,opacity var(--fade) ease;}
+.brand:hover img{opacity:.75;}
+.nav{display:flex;gap:.3rem;margin-left:auto;}
+.nav a{font-family:var(--head);font-size:.9rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:.5rem .8rem;border-radius:999px;color:var(--ink);}
+.nav a:hover{color:var(--wine);}
+.h-actions{display:flex;align-items:center;gap:.5rem;}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;}
+.lang button{font-family:var(--head);font-size:.78rem;font-weight:500;letter-spacing:.1em;padding:.32rem .55rem;border-radius:999px;color:var(--ink-soft);}
+.lang button:hover{color:var(--ink);}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper);}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);}
+.icon-btn:hover{border-color:var(--ink);background:var(--soft);}
+.icon-btn svg{width:18px;height:18px;}
+.theme-btn .sun{display:none;}
+[data-theme="dark"] .theme-btn .sun{display:block;}
+[data-theme="dark"] .theme-btn .moon{display:none;}
+.h-book{padding:.68rem 1.1rem;font-size:.84rem;}
+.burger{display:none;position:relative;}
+.burger i{position:absolute;left:50%;top:50%;width:18px;height:2px;margin:-1px 0 0 -9px;background:currentColor;border-radius:2px;transition:transform .4s ease,opacity .3s ease;}
+.burger i:nth-child(1){transform:translateY(-6px);}
+.burger i:nth-child(3){transform:translateY(6px);}
+.burger[aria-expanded="true"] i:nth-child(1){transform:rotate(45deg);}
+.burger[aria-expanded="true"] i:nth-child(2){opacity:0;}
+.burger[aria-expanded="true"] i:nth-child(3){transform:rotate(-45deg);}
+
+/* header over the dark hero */
+body.top .site-header:not(.scrolled) .brand img{filter:invert(1);}
+body.top .site-header:not(.scrolled) .nav a{color:#FFF8EE;}
+body.top .site-header:not(.scrolled) .nav a:hover{color:#E9C9A0;}
+body.top .site-header:not(.scrolled) .lang{border-color:rgba(255,248,238,.35);}
+body.top .site-header:not(.scrolled) .lang button{color:rgba(255,248,238,.75);}
+body.top .site-header:not(.scrolled) .lang button:hover{color:#fff;}
+body.top .site-header:not(.scrolled) .lang button[aria-pressed="true"]{background:#FFF8EE;color:#191512;}
+body.top .site-header:not(.scrolled) .icon-btn{border-color:rgba(255,248,238,.35);color:#FFF8EE;}
+body.top .site-header:not(.scrolled) .icon-btn:hover{border-color:#FFF8EE;background:rgba(255,248,238,.12);}
+[data-theme="dark"] .brand img{filter:invert(1);}
+/* when the menu is open, the header sits on the paper menu */
+body.menu-open .site-header{background:transparent !important;border-color:transparent !important;backdrop-filter:none;}
+body.menu-open .site-header .brand img{filter:none !important;}
+[data-theme="dark"] body.menu-open .site-header .brand img{filter:invert(1) !important;}
+body.menu-open .site-header .icon-btn{color:var(--ink) !important;border-color:var(--line) !important;background:transparent !important;}
+body.menu-open .site-header .lang{border-color:var(--line) !important;}
+body.menu-open .site-header .lang button{color:var(--ink-soft) !important;}
+body.menu-open .site-header .lang button[aria-pressed="true"]{background:var(--ink) !important;color:var(--paper) !important;}
+
+/* mobile menu - circle reveal */
+.m-menu{position:fixed;inset:0;z-index:55;background:var(--paper);clip-path:circle(0 at calc(100% - 2.6rem) calc(var(--hh) / 2));visibility:hidden;pointer-events:none;
+  transition:clip-path .75s cubic-bezier(.7,0,.2,1),visibility 0s linear .75s,background-color var(--fade-theme) ease;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--hh) + 1rem) 1.6rem 2rem;}
+.m-menu.open{clip-path:circle(150% at calc(100% - 2.6rem) calc(var(--hh) / 2));visibility:visible;pointer-events:auto;transition:clip-path .75s cubic-bezier(.7,0,.2,1),visibility 0s linear 0s,background-color var(--fade-theme) ease;}
+.m-menu nav{display:flex;flex-direction:column;gap:.2rem;}
+.m-link{font-family:var(--head);font-size:clamp(2rem,9vw,2.8rem);font-weight:600;text-transform:uppercase;letter-spacing:.02em;color:var(--ink);opacity:0;transition:opacity .5s ease,color var(--fade) ease;}
+.m-link small{font-size:.9rem;color:var(--wine);margin-right:.8rem;letter-spacing:.2em;vertical-align:middle;}
+.m-link:hover{color:var(--wine);}
+.m-menu.open .m-link{opacity:1;transition-delay:calc(.3s + var(--i) * .07s),0s;}
+.m-foot{margin-top:2.2rem;display:flex;flex-direction:column;gap:1rem;opacity:0;transition:opacity .5s ease;}
+.m-menu.open .m-foot{opacity:1;transition-delay:.75s;}
+.m-foot .row{display:flex;flex-wrap:wrap;gap:.6rem;}
+.m-foot p{color:var(--ink-soft);font-size:.95rem;}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:max(620px,100svh);display:flex;align-items:center;justify-content:center;text-align:center;color:#FFF8EE;overflow:hidden;background:#120F0D;padding:calc(var(--hh) + 2rem) 0 5rem;}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,15,13,.72) 0%,rgba(18,15,13,.5) 40%,rgba(18,15,13,.82) 100%);}
+.hero .grain{position:absolute;inset:0;opacity:.16;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hero .wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;}
+.hero-logo{width:min(400px,78vw);height:auto;filter:invert(1) drop-shadow(0 10px 30px rgba(0,0,0,.4));opacity:0;transition:opacity 1.2s ease .15s;}
+.loaded .hero-logo{opacity:.96;}
+.hero h1{font-size:clamp(1.05rem,2.2vw,1.35rem);font-weight:500;letter-spacing:.32em;margin-top:1.6rem;color:#E9C9A0;}
+.hero p.lead{max-width:560px;margin:1rem auto 2rem;font-size:clamp(1.02rem,1.6vw,1.16rem);color:rgba(255,248,238,.9);}
+.hero .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;}
+.status{display:inline-flex;align-items:center;gap:.55rem;margin-top:2rem;font-size:.86rem;font-weight:600;color:rgba(255,248,238,.88);background:rgba(255,248,238,.1);border:1px solid rgba(255,248,238,.2);padding:.45rem .95rem;border-radius:999px;}
+.status i{width:8px;height:8px;border-radius:50%;background:#9AA3A0;flex:none;}
+.status.open i{background:#7BD389;box-shadow:0 0 0 4px rgba(123,211,137,.2);}
+.scroll-cue{position:absolute;left:50%;bottom:1.6rem;z-index:2;margin-left:-11px;width:22px;height:36px;border:1.5px solid rgba(255,248,238,.5);border-radius:12px;}
+.scroll-cue::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:#FFF8EE;animation:cue 2s ease-in-out infinite;}
+@keyframes cue{0%,100%{opacity:0;top:7px;}40%{opacity:1;}80%{opacity:0;top:19px;}}
+.vid-btn{position:absolute;right:1.4rem;bottom:1.4rem;z-index:3;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,248,238,.35);color:#FFF8EE;display:flex;align-items:center;justify-content:center;background:rgba(18,15,13,.3);}
+.vid-btn:hover{border-color:#FFF8EE;background:rgba(18,15,13,.55);}
+.vid-btn svg{width:16px;height:16px;}
+.vid-btn .play{display:none;}
+.vid-btn.paused .play{display:block;}
+.vid-btn.paused .pause{display:none;}
+
+/* ---------- 3 pillars ---------- */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line);background:var(--card);transition:background-color var(--fade-theme) ease;}
+.pillar{padding:2rem clamp(1.2rem,3vw,2.4rem);display:flex;gap:1rem;align-items:flex-start;border-right:1px solid var(--line);}
+.pillar:last-child{border-right:0;}
+.pillar svg{width:34px;height:34px;color:var(--wine);flex:none;margin-top:.15rem;}
+.pillar h3{font-size:1.1rem;letter-spacing:.06em;}
+.pillar p{color:var(--ink-soft);font-size:.94rem;margin-top:.3rem;line-height:1.55;}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,6vw,5rem);align-items:center;}
+.about figure{margin:0;position:relative;}
+.about figure img{width:100%;height:auto;aspect-ratio:4/3.3;object-fit:cover;border-radius:var(--r);box-shadow:var(--shadow);}
+.about figure figcaption{position:absolute;left:1rem;bottom:1rem;background:rgba(18,15,13,.72);color:#FFF8EE;font-size:.8rem;font-weight:600;letter-spacing:.08em;padding:.45rem .8rem;border-radius:999px;backdrop-filter:blur(6px);}
+.about h2{font-size:clamp(2.1rem,4.6vw,3.2rem);margin:.8rem 0 1.2rem;}
+.about p{color:var(--ink-soft);margin-bottom:1rem;}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1.8rem;}
+.fact{border:1px solid var(--line);border-radius:14px;padding:1rem;text-align:center;}
+.fact b{display:block;font-family:var(--head);font-size:1.9rem;font-weight:600;color:var(--wine);line-height:1.1;}
+.fact span{font-size:.82rem;color:var(--ink-soft);line-height:1.35;display:block;margin-top:.3rem;}
+
+/* ---------- menu ---------- */
+.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-bottom:2.2rem;}
+.tab{font-family:var(--head);font-size:.88rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:.62rem 1.15rem;border-radius:999px;border:1px solid var(--line);color:var(--ink-soft);}
+.tab:hover{border-color:var(--ink);color:var(--ink);}
+.tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+.panel{display:none;}
+.panel.on{display:block;animation:fadeIn .5s ease;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.dishes{display:grid;grid-template-columns:1fr 1fr;gap:0 3rem;}
+.dish{display:flex;align-items:baseline;gap:.8rem;padding:1.05rem .4rem;border-bottom:1px dashed var(--line);border-radius:6px;}
+.dish:hover{background:var(--soft);}
+.dish .n{font-weight:700;font-size:1.02rem;}
+.dish .d{display:block;font-size:.88rem;color:var(--ink-soft);font-weight:500;line-height:1.45;margin-top:.15rem;}
+.dish .dots{flex:1;}
+.dish .p{font-family:var(--head);font-size:1.15rem;font-weight:500;color:var(--wine);white-space:nowrap;}
+.dish .tag{display:inline-block;margin-left:.4rem;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--on-wine);background:var(--wine);padding:.1rem .45rem;border-radius:999px;vertical-align:middle;}
+.special{display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;border:1.5px solid var(--wine);border-radius:var(--r);padding:1.4rem 1.6rem;margin-bottom:1.6rem;background:var(--card);transition:background-color var(--fade-theme) ease;}
+.special svg{width:44px;height:44px;color:var(--wine);}
+.special h3{font-size:1.4rem;}
+.special p{color:var(--ink-soft);font-size:.94rem;}
+.special .p{font-family:var(--head);font-size:1.7rem;color:var(--wine);}
+.menu-note{text-align:center;font-size:.86rem;color:var(--ink-soft);margin-top:1.8rem;}
+.sauces{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem;}
+.chip{font-size:.85rem;font-weight:600;padding:.42rem .85rem;border-radius:999px;background:var(--soft);color:var(--ink);}
+
+/* ---------- skewer planner ---------- */
+.planner{display:grid;grid-template-columns:1.1fr .9fr;gap:1.4rem;align-items:stretch;}
+.planner > *,.week > *,.contact > *,.banquet > *,.about > *{min-width:0;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:clamp(1.4rem,3vw,2rem);}
+.section.alt .card{background:var(--paper);}
+.field-label{font-family:var(--head);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.7rem;display:block;}
+.guests{display:flex;align-items:center;gap:1rem;margin-bottom:1.6rem;}
+.guests output{font-family:var(--head);font-size:2.6rem;font-weight:600;min-width:2.4ch;text-align:center;line-height:1;}
+.step-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);font-size:1.3rem;display:flex;align-items:center;justify-content:center;}
+.step-btn:hover{border-color:var(--ink);background:var(--soft);}
+input[type=range]{flex:1;accent-color:var(--wine);min-width:0;}
+.opts{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem;}
+.opt{border:1px solid var(--line);border-radius:999px;padding:.5rem .95rem;font-size:.9rem;font-weight:600;color:var(--ink-soft);}
+.opt:hover{border-color:var(--ink);color:var(--ink);}
+.opt[aria-pressed="true"]{background:var(--wine);border-color:var(--wine);color:var(--on-wine);}
+.result{display:flex;flex-direction:column;background:#191512;color:#F3ECE1;border-color:#191512;}
+[data-theme="dark"] .result{background:#2A1A1A;border-color:#3A2424;}
+.result .field-label{color:#BFAF9B;}
+.result ul{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.2rem;}
+.result li{display:flex;justify-content:space-between;gap:1rem;font-weight:600;border-bottom:1px dashed rgba(243,236,225,.16);padding-bottom:.55rem;}
+.result li span:last-child{font-family:var(--head);font-weight:500;color:#E9C9A0;white-space:nowrap;}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin:auto 0 1.2rem;padding-top:.6rem;}
+.total b{font-family:var(--head);font-size:2.2rem;font-weight:600;color:#fff;}
+.result small{color:#BFAF9B;font-size:.8rem;display:block;margin-bottom:1rem;}
+.result .btn-wine{background:#B02A3A;}
+.result .btn-wine:hover{background:#C2434F;}
+
+/* ---------- this week ---------- */
+.week{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+.offer{position:relative;overflow:hidden;}
+.offer .big{font-family:var(--head);font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:600;text-transform:uppercase;line-height:1.1;margin:.8rem 0 .8rem;}
+.offer .big em{font-style:normal;color:var(--wine);}
+.offer p{color:var(--ink-soft);}
+.offer p.big{color:var(--ink);}
+.offer .when{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin-top:1.4rem;}
+.badge{display:inline-flex;align-items:center;gap:.45rem;font-size:.82rem;font-weight:700;padding:.4rem .8rem;border-radius:999px;background:var(--soft);}
+.badge.live{background:var(--wine);color:var(--on-wine);}
+.badge.live i{width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.4s ease-in-out infinite;}
+@keyframes blink{50%{opacity:.25;}}
+.offer .icon-big{position:absolute;right:-12px;top:-12px;width:130px;height:130px;color:var(--wine);opacity:.08;}
+.sport-list{display:flex;flex-direction:column;gap:.7rem;margin-top:1.2rem;}
+.sport-list li{display:flex;gap:.8rem;align-items:center;font-weight:600;}
+.sport-list svg{width:22px;height:22px;color:var(--wine);flex:none;}
+
+/* ---------- banquet ---------- */
+.banquet{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:start;}
+.occasions{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:1.6rem;}
+.occasions li{display:flex;gap:.7rem;align-items:center;font-weight:600;font-size:.95rem;padding:.8rem 1rem;border:1px solid var(--line);border-radius:12px;}
+.occasions svg{width:20px;height:20px;color:var(--wine);flex:none;}
+form .grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.f{display:flex;flex-direction:column;gap:.4rem;}
+.f.full{grid-column:1/-1;}
+.f label{font-size:.82rem;font-weight:700;color:var(--ink-soft);}
+.inp{width:100%;font:inherit;font-size:.98rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:.8rem .95rem;}
+.section.alt .inp{background:var(--card);}
+.inp:hover{border-color:color-mix(in srgb,var(--ink) 40%,transparent);}
+.inp:focus{outline:none;border-color:var(--wine);box-shadow:0 0 0 3px color-mix(in srgb,var(--wine) 20%,transparent);}
+textarea.inp{min-height:96px;resize:vertical;}
+.f.err .inp{border-color:var(--wine);}
+.form-msg{font-size:.88rem;color:var(--wine);min-height:1.3em;margin:.6rem 0 0;}
+.hp{position:absolute;left:-9999px;opacity:0;}
+
+/* ---------- gallery ---------- */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:.8rem;}
+.shot{position:relative;border-radius:14px;overflow:hidden;background:var(--soft);border:1px solid var(--line);}
+.shot:hover{box-shadow:var(--shadow);}
+.shot.w2{grid-column:span 2;}
+.shot.h2{grid-row:span 2;}
+.shot img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;}
+.shot .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--ink-soft);font-size:.82rem;font-weight:600;text-align:center;padding:1rem;}
+.shot .ph svg{width:30px;height:30px;opacity:.5;}
+.shot.missing img{display:none;}
+
+/* ---------- contact ---------- */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+.infos{display:grid;gap:.8rem;}
+.info{display:flex;gap:1rem;align-items:center;padding:1.1rem 1.2rem;border:1px solid var(--line);border-radius:14px;background:var(--card);}
+a.info:hover{border-color:var(--ink);box-shadow:var(--shadow-soft);}
+.info .ic{width:44px;height:44px;border-radius:50%;background:var(--soft);color:var(--wine);display:flex;align-items:center;justify-content:center;flex:none;}
+.info .ic svg{width:20px;height:20px;}
+.info small{display:block;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
+.info b{font-weight:700;}
+.hours{padding:1.2rem 1.3rem;}
+.hours table{width:100%;border-collapse:collapse;font-size:.94rem;margin-top:.5rem;}
+.hours td{padding:.35rem 0;border-bottom:1px dashed var(--line);}
+.hours td:last-child{text-align:right;font-weight:700;}
+.hours tr.today td{color:var(--wine);}
+.map{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);min-height:380px;background:var(--soft);}
+.map iframe{width:100%;height:100%;min-height:380px;border:0;display:block;filter:grayscale(.85) contrast(1.05);transition:filter var(--fade) ease;}
+.map:hover iframe{filter:grayscale(0);}
+[data-theme="dark"] .map iframe{filter:grayscale(1) invert(.9) hue-rotate(180deg);}
+
+/* ---------- footer ---------- */
+.site-footer{background:#120F0D;color:rgba(243,236,225,.78);padding:4rem 0 2rem;}
+.f-top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2rem;align-items:start;}
+.f-top img{width:230px;height:auto;filter:invert(1);opacity:.92;}
+.f-top h4{font-family:var(--head);font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#E9C9A0;font-size:.82rem;margin:0 0 1rem;}
+.f-top a{display:block;padding:.2rem 0;}
+.f-top a:hover{color:#fff;}
+.f-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;border-top:1px solid rgba(243,236,225,.12);margin-top:2.6rem;padding-top:1.4rem;font-size:.84rem;}
+.f-bottom a:hover{color:#fff;}
+.site-footer .orn-line{color:#E9C9A0;opacity:.6;margin-top:2.6rem;}
+
+/* floating WhatsApp on mobile */
+.wa-float{position:fixed;right:1rem;bottom:1rem;z-index:50;width:54px;height:54px;border-radius:50%;background:#25D366;color:#fff;display:none;align-items:center;justify-content:center;box-shadow:0 14px 30px -12px rgba(0,0,0,.5);opacity:0;pointer-events:none;}
+.wa-float.show{opacity:1;pointer-events:auto;}
+.wa-float:hover{background:#1EBE5B;}
+.wa-float svg{width:26px;height:26px;}
+
+/* reveal: fade only */
+.js .rv{opacity:0;transition:opacity .9s ease;}
+.js .rv.shown{opacity:1;}
+.js .rv.d1{transition-delay:.1s;} .js .rv.d2{transition-delay:.2s;} .js .rv.d3{transition-delay:.3s;}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .nav{display:none;}
+  .burger{display:flex;}
+  .h-actions{margin-left:auto;}
+  .h-book{display:none;}
+}
+@media (max-width:960px){
+  .about,.planner,.banquet,.contact,.week{grid-template-columns:1fr;}
+  .about figure{max-width:620px;}
+  .pillars{grid-template-columns:1fr;}
+  .pillar{border-right:0;border-bottom:1px solid var(--line);}
+  .pillar:last-child{border-bottom:0;}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px;}
+  .f-top{grid-template-columns:1fr 1fr;}
+  .f-top > div:first-child{grid-column:1/-1;}
+  .wa-float{display:flex;}
+}
+@media (max-width:720px){
+  :root{--hh:66px;}
+  body{font-size:16px;}
+  .brand img{height:32px;}
+  .dishes{grid-template-columns:1fr;}
+  .special{grid-template-columns:1fr auto;}
+  .special svg{display:none;}
+  form .grid{grid-template-columns:1fr;}
+  .occasions{grid-template-columns:1fr;}
+  .facts{grid-template-columns:repeat(3,1fr);gap:.5rem;}
+  .fact{padding:.8rem .4rem;}
+  .fact b{font-size:1.5rem;}
+  .hero .ctas{flex-direction:column;align-items:stretch;width:100%;max-width:320px;}
+  .vid-btn{right:1rem;bottom:1rem;}
+  .tabs{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;margin-inline:-1.2rem;padding:0 1.2rem .4rem;scrollbar-width:none;}
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{flex:none;}
+}
+@media (max-width:420px){
+  .special{grid-template-columns:1fr;gap:.6rem;padding:1.2rem;}
+  .sec-head h2,.about h2,#banquet h2{font-size:clamp(1.55rem,8.2vw,2rem) !important;overflow-wrap:break-word;hyphens:auto;}
+  .btn{white-space:normal;text-align:center;letter-spacing:.08em;padding:.9rem 1.2rem;}
+  .h-actions{gap:.35rem;}
+  .lang button{padding:.3rem .42rem;font-size:.72rem;}
+  .icon-btn{width:38px;height:38px;}
+  .brand img{height:28px;}
+  .gallery{grid-template-columns:1fr;grid-auto-rows:210px;}
+  .shot.w2{grid-column:auto;} .shot.h2{grid-row:auto;}
+  .f-top{grid-template-columns:1fr;}
+  .guests output{font-size:2.1rem;}
+  .guests{flex-wrap:wrap;}
+  .guests input[type=range]{flex-basis:100%;}
+}
+@media (max-width:350px){
+  .site-header .wrap{gap:.6rem;}
+  .brand img{height:24px;}
+  .lang button{padding:.28rem .34rem;}
+  .icon-btn{width:34px;height:34px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition-duration:.01ms !important;transition-delay:0s !important;}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body class="top">
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-orn" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 9.2 14.8 12 12 14.8 9.2 12Z"/><path d="M12 2.5 15.2 5.7 13.9 7 12 5.1 10.1 7 8.8 5.7Z"/><path d="M12 2.5 15.2 5.7 13.9 7 12 5.1 10.1 7 8.8 5.7Z" transform="rotate(90 12 12)"/><path d="M12 2.5 15.2 5.7 13.9 7 12 5.1 10.1 7 8.8 5.7Z" transform="rotate(180 12 12)"/><path d="M12 2.5 15.2 5.7 13.9 7 12 5.1 10.1 7 8.8 5.7Z" transform="rotate(270 12 12)"/><path d="M5 5h2.2v2.2H5zM16.8 5H19v2.2h-2.2zM5 16.8h2.2V19H5zM16.8 16.8H19V19h-2.2z"/></g></symbol>
+    <symbol id="i-fire" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 21c-3.9 0-6.5-2.6-6.5-6.2 0-3.4 2.6-5.3 3.6-8.3.4 1.7 1.4 2.7 2.5 3.3.3-2.9 1.6-5.2 3.6-6.8-.3 3.3 3.3 5.6 3.3 10 0 4.6-2.8 8-6.5 8Zm0 0c-1.7 0-2.8-1.2-2.8-2.8 0-1.8 1.6-2.6 2.1-4 .9 1 2.4 1.7 2.4 3.9 0 1.6-.9 2.9-1.7 2.9Z"/></symbol>
+    <symbol id="i-beer" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h10v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8Z"/><path d="M15 10h2.2a1.8 1.8 0 0 1 1.8 1.8v3.4a1.8 1.8 0 0 1-1.8 1.8H15"/><path d="M5 8a2.5 2.5 0 0 1 2.3-3.5A3 3 0 0 1 12.5 4 2.3 2.3 0 0 1 15 6.5V8"/><path d="M8.5 12v6M11.5 12v6"/></g></symbol>
+    <symbol id="i-hall" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10M8 3c0 4 1.5 6 4 6s4-2 4-6"/><path d="M12 9v9M8.5 21h7"/><path d="M3 13h3M18 13h3"/></g></symbol>
+    <symbol id="i-tv" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/><path d="m10.5 9 4 2-4 2Z"/></g></symbol>
+    <symbol id="i-ball" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c3.6 3.5 3.6 9.3 0 12.8M18.4 5.6c-3.6 3.5-3.6 9.3 0 12.8"/></g></symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3c-.6 1 .6 2 0 3M12 3c-.6 1 .6 2 0 3"/><path d="M3 21h14"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M5 4h3.5l1.6 4.2-2.2 1.4a11 11 0 0 0 6.5 6.5l1.4-2.2L20 15.5V19a2 2 0 0 1-2.2 2A16 16 0 0 1 3 6.2 2 2 0 0 1 5 4Z"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2A9.7 9.7 0 0 0 3.6 16.8L2.3 21.7l5-1.3A9.7 9.7 0 1 0 12 2.2Zm0 17.7c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9Zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2c0 1.2.9 2.4 1 2.5.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.5-.5Z"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.5H16l.4-3h-2.9V8.7c0-.9.3-1.5 1.5-1.5h1.5V4.5c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.3H8v3h2.6V21h2.9Z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+    <symbol id="i-cake" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16M5 21v-7h14v7"/><path d="M5 17c1.5 1 2.5 1 3.5 0s2.5-1 3.5 0 2.5 1 3.5 0 2.5-1 3.5 0"/><path d="M12 14V9M12 6.5c-.8-.8-.8-1.8 0-3 .8 1.2.8 2.2 0 3Z"/></g></symbol>
+    <symbol id="i-ring" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="12" cy="15" r="6"/><path d="m9 4 3 4 3-4-1.5-1.5h-3Z"/></g></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.8a3.5 3.5 0 0 1 0 6.4M18.5 14.2a6.5 6.5 0 0 1 3 5.8"/></g></symbol>
+    <symbol id="i-brief" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 12h18"/></g></symbol>
+    <symbol id="i-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-8 8"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="site-header" id="header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Par-Bar"><img src="logo-wordmark.svg" alt="Par-Bar" width="98" height="40"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#menu" data-i18n="nav.menu">Ēdienkarte</a>
+      <a href="#planner" data-i18n="nav.planner">Šašliku plāns</a>
+      <a href="#week" data-i18n="nav.week">Akcijas</a>
+      <a href="#banquet" data-i18n="nav.banquet">Banketi</a>
+      <a href="#contact" data-i18n="nav.contact">Kontakti</a>
+    </nav>
+    <div class="h-actions">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="lv" aria-pressed="true">LV</button>
+        <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="icon-btn theme-btn" type="button" id="themeBtn" aria-label="Dark / light">
+        <svg class="moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></g></svg>
+      </button>
+      <a class="btn btn-wine h-book" href="#banquet" data-i18n="cta.book">Rezervēt</a>
+      <button class="icon-btn burger" type="button" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mMenu"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="m-menu" id="mMenu" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <a class="m-link" style="--i:0" href="#menu"><small>01</small><span data-i18n="nav.menu">Ēdienkarte</span></a>
+    <a class="m-link" style="--i:1" href="#planner"><small>02</small><span data-i18n="nav.planner">Šašliku plāns</span></a>
+    <a class="m-link" style="--i:2" href="#week"><small>03</small><span data-i18n="nav.week">Akcijas</span></a>
+    <a class="m-link" style="--i:3" href="#banquet"><small>04</small><span data-i18n="nav.banquet">Banketi</span></a>
+    <a class="m-link" style="--i:4" href="#contact"><small>05</small><span data-i18n="nav.contact">Kontakti</span></a>
+  </nav>
+  <div class="m-foot">
+    <div class="row">
+      <a class="btn btn-wine" href="tel:+37120219338"><svg><use href="#i-phone"/></svg>20 219 338</a>
+      <a class="btn btn-line" href="https://wa.me/37120219338" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+    </div>
+    <p>Stacijas iela 63, Daugavpils</p>
+  </div>
+</div>
+
+<main id="top">
+  <!-- HERO: Mixkit clip 2994 "Person cooking meat on a grill" (Mixkit Stock Video Free License) -->
+  <section class="hero" id="hero">
+    <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="https://assets.mixkit.co/videos/2994/2994-thumb-720-0.jpg">
+      <source src="https://assets.mixkit.co/videos/2994/2994-720.mp4" type="video/mp4">
+      <source src="https://assets.mixkit.co/videos/2994/2994-360.mp4" type="video/mp4">
+    </video>
+    <div class="shade"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="wrap">
+      <img class="hero-logo" src="logo.svg" alt="Par-Bar" width="1775" height="1258">
+      <h1 data-i18n="hero.title">Kafejnīca-bārs ar Latgales dvēseli</h1>
+      <p class="lead" data-i18n="hero.lead">Šašliki uz īstām oglēm, auksts izlejamais alus un mājīga atmosfēra pašā Daugavpils centrā.</p>
+      <div class="ctas">
+        <a class="btn btn-wine" href="#banquet"><span data-i18n="cta.table">Rezervēt galdiņu</span><svg><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost-light" href="#menu" data-i18n="cta.menu">Skatīt ēdienkarti</a>
+      </div>
+      <div class="status" id="status"><i></i><span id="statusText">&nbsp;</span></div>
+    </div>
+    <span class="scroll-cue" aria-hidden="true"></span>
+    <button class="vid-btn" id="vidBtn" type="button" aria-label="Pause video">
+      <svg class="pause" viewBox="0 0 24 24"><path fill="currentColor" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+      <svg class="play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+    </button>
+  </section>
+
+  <div class="pillars">
+    <div class="pillar rv"><svg><use href="#i-fire"/></svg><div><h3 data-i18n="p1.t">Cepts uz oglēm</h3><p data-i18n="p1.d">Šašliki, ribiņas un luļa-kebabs ar īstu dūmu garšu.</p></div></div>
+    <div class="pillar rv d1"><svg><use href="#i-beer"/></svg><div><h3 data-i18n="p2.t">Alus un sports</h3><p data-i18n="p2.d">Izlejamais alus un spēļu tiešraides uz lielā ekrāna.</p></div></div>
+    <div class="pillar rv d2"><svg><use href="#i-hall"/></svg><div><h3 data-i18n="p3.t">Banketu zāles</h3><p data-i18n="p3.d">Vieta jubilejām, kāzām, piemiņas mielastiem un uzņēmumu vakariem.</p></div></div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap about">
+      <figure class="rv">
+        <img src="img/bar-wall.jpg" alt="Par-Bar bārs ar brieža galvu" data-i18n-alt="about.alt" loading="lazy" width="1086" height="826">
+        <figcaption>Stacijas iela 63</figcaption>
+      </figure>
+      <div>
+        <span class="kicker rv"><svg><use href="#i-orn"/></svg><span data-i18n="about.k">Par mums</span></span>
+        <h2 class="rv d1" data-i18n="about.t">Latgales viesmīlība, pilsētas ritms</h2>
+        <p class="rv d1" data-i18n="about.p1">Par-Bar ir vieta, kur ienākt uz kafiju no rīta, uz šašliku vakarā un palikt uz vēl vienu alu, kad spēle ievelkas. Gaļu cepam uz oglēm, porcijas taisām godīgas, un pie mums vienmēr ir silti.</p>
+        <p class="rv d2" data-i18n="about.p2">Ornaments mūsu logo ir latgaliešu zīme, kas nozīmē mājas un labu kompāniju. Tieši tādu sajūtu gribam, lai jūs aiznesat līdzi.</p>
+        <div class="facts rv d2">
+          <div class="fact"><b>7</b><span data-i18n="about.f1">ēdieni no ogļu grila</span></div>
+          <div class="fact"><b>3</b><span data-i18n="about.f2">valodas, viena atmosfēra</span></div>
+          <div class="fact"><b>63</b><span data-i18n="about.f3">Stacijas iela</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section alt" id="menu">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="kicker rv"><svg><use href="#i-orn"/></svg><span data-i18n="menu.k">Ēdienkarte</span></span>
+        <h2 class="rv d1" data-i18n="menu.t">No ogļu grila uz galda</h2>
+        <p class="rv d2" data-i18n="menu.p">Mūsu populārākie ēdieni. Pilnā ēdienkarte un dzērienu karte gaida uz vietas.</p>
+      </div>
+      <div class="tabs rv" role="tablist" id="menuTabs">
+        <button class="tab" role="tab" aria-selected="true" data-tab="grill" data-i18n="tab.grill">Uz oglēm</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="kitchen" data-i18n="tab.kitchen">Ēdieni un uzkodas</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="soups" data-i18n="tab.soups">Zupas un deserti</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="drinks" data-i18n="tab.drinks">Dzērieni</button>
+      </div>
+      <div id="menuPanels"></div>
+      <p class="menu-note" data-i18n="menu.note">Cenas var mainīties. Par alergēniem jautājiet viesmīlim.</p>
+    </div>
+  </section>
+
+  <!-- SKEWER PLANNER -->
+  <section class="section" id="planner">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker rv"><svg><use href="#i-orn"/></svg><span data-i18n="pl.k">Šašliku plāns</span></span>
+        <h2 class="rv d1" data-i18n="pl.t">Cik šašliku vajag jūsu kompānijai?</h2>
+        <p class="rv d2" data-i18n="pl.p">Izvēlieties cilvēku skaitu un apetīti. Mēs sarēķināsim porcijas, un pasūtījumu varat nosūtīt mums uzreiz WhatsApp.</p>
+      </div>
+      <div class="planner">
+        <div class="card rv">
+          <span class="field-label" data-i18n="pl.guests">Cilvēku skaits</span>
+          <div class="guests">
+            <button class="step-btn" type="button" id="gMinus" aria-label="-">&minus;</button>
+            <output id="gOut">4</output>
+            <button class="step-btn" type="button" id="gPlus" aria-label="+">+</button>
+            <input type="range" id="gRange" min="1" max="30" value="4" aria-label="Guests">
+          </div>
+          <span class="field-label" data-i18n="pl.appetite">Apetīte</span>
+          <div class="opts" id="appetite">
+            <button class="opt" type="button" data-v="0.75" aria-pressed="false" data-i18n="pl.a1">Viegla</button>
+            <button class="opt" type="button" data-v="1" aria-pressed="true" data-i18n="pl.a2">Normāla</button>
+            <button class="opt" type="button" data-v="1.4" aria-pressed="false" data-i18n="pl.a3">Ļoti izsalkuši</button>
+          </div>
+          <span class="field-label" data-i18n="pl.kinds">Kādus šašlikus?</span>
+          <div class="opts" id="kinds">
+            <button class="opt" type="button" data-k="classic" aria-pressed="true" data-i18n="d.classic">Klasiskais šašliks</button>
+            <button class="opt" type="button" data-k="caucasus" aria-pressed="false" data-i18n="d.caucasus">Kaukāza šašliks</button>
+            <button class="opt" type="button" data-k="chicken" aria-pressed="true" data-i18n="d.chicken">Vistas šašliks</button>
+            <button class="opt" type="button" data-k="lula" aria-pressed="false" data-i18n="d.lula">Luļa-kebabs</button>
+            <button class="opt" type="button" data-k="ribs" aria-pressed="false" data-i18n="d.ribs">Cūkgaļas ribiņas</button>
+          </div>
+          <span class="field-label" data-i18n="pl.side">Piedevas katram</span>
+          <div class="opts" id="sides" style="margin-bottom:0">
+            <button class="opt" type="button" data-s="1" aria-pressed="true" data-i18n="pl.yes">Jā, frī kartupeļi</button>
+            <button class="opt" type="button" data-s="0" aria-pressed="false" data-i18n="pl.no">Nevajag</button>
+          </div>
+        </div>
+        <div class="card result rv d1" aria-live="polite">
+          <span class="field-label" data-i18n="pl.your">Jūsu pasūtījums</span>
+          <ul id="plList"></ul>
+          <div class="total"><span data-i18n="pl.total">Aptuveni kopā</span><b id="plTotal">0 €</b></div>
+          <small data-i18n="pl.small">Aprēķins ir orientējošs. Lielām kompānijām iesakām pasūtīt dienu iepriekš.</small>
+          <a class="btn btn-wine" id="plSend" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-i18n="pl.send">Nosūtīt pasūtījumu WhatsApp</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THIS WEEK -->
+  <section class="section alt" id="week">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker rv"><svg><use href="#i-orn"/></svg><span data-i18n="wk.k">Šonedēļ Par-Bar</span></span>
+        <h2 class="rv d1" data-i18n="wk.t">Iemesli atnākt vēlreiz</h2>
+      </div>
+      <div class="week">
+        <article class="card offer rv">
+          <svg class="icon-big"><use href="#i-coffee"/></svg>
+          <span class="kicker"><span data-i18n="wk.sun">Tikai svētdienās līdz 13:00</span></span>
+          <p class="big" data-i18n-html="wk.offer">2 šakšukas = <em>2 kafijas dāvanā</em></p>
+          <p data-i18n="wk.offerp">Pasūtiet divas šakšukas ar pītu līdz 13:00 un saņemiet divas jebkuras kafijas no mums. Ņemiet līdzi kādu, ar ko kopā brokastot.</p>
+          <div class="when"><span class="badge" id="sunBadge">&nbsp;</span></div>
+        </article>
+        <article class="card offer rv d1">
+          <svg class="icon-big"><use href="#i-tv"/></svg>
+          <span class="kicker"><span data-i18n="wk.sport">Sporta vakari</span></span>
+          <p class="big" data-i18n-html="wk.sportt">Lielās spēles uz <em>lielā ekrāna</em></p>
+          <p data-i18n="wk.sportp">Eirolīgas basketbols, futbols un hokejs ar draugiem, šašliku un aukstu alu. Spēļu grafiku publicējam mūsu Facebook lapā.</p>
+          <ul class="sport-list">
+            <li><svg><use href="#i-ball"/></svg><span data-i18n="wk.s1">Eirolīga un basketbols</span></li>
+            <li><svg><use href="#i-beer"/></svg><span data-i18n="wk.s2">Izlejamais alus un uzkodas spēlei</span></li>
+          </ul>
+          <div class="when"><a class="btn btn-line" href="https://www.facebook.com/profile.php?id=61594905531083" target="_blank" rel="noopener"><svg><use href="#i-fb"/></svg><span data-i18n="wk.fb">Spēļu grafiks</span></a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANQUET -->
+  <section class="section" id="banquet">
+    <div class="wrap banquet">
+      <div>
+        <span class="kicker rv"><svg><use href="#i-orn"/></svg><span data-i18n="bq.k">Banketi un rezervācijas</span></span>
+        <h2 class="rv d1" style="font-size:clamp(2.1rem,4.6vw,3.2rem);margin:.8rem 0 1.1rem" data-i18n="bq.t">Jūsu svētki, mūsu rūpes</h2>
+        <p class="rv d1" style="color:var(--ink-soft)" data-i18n="bq.p">Mums ir banketu zāles nelielām un lielām kompānijām. Sastādīsim ēdienkarti, sagatavosim galdus un parūpēsimies, lai jums atliek tikai svinēt.</p>
+        <ul class="occasions rv d2">
+          <li><svg><use href="#i-cake"/></svg><span data-i18n="bq.o1">Dzimšanas dienas un jubilejas</span></li>
+          <li><svg><use href="#i-ring"/></svg><span data-i18n="bq.o2">Kāzas un saderināšanās</span></li>
+          <li><svg><use href="#i-brief"/></svg><span data-i18n="bq.o3">Uzņēmumu vakari</span></li>
+          <li><svg><use href="#i-users"/></svg><span data-i18n="bq.o4">Bēres un piemiņas mielasti</span></li>
+        </ul>
+      </div>
+      <form class="card rv d1" id="bqForm" novalidate>
+        <span class="field-label" data-i18n="bq.form">Pieteikums</span>
+        <div class="grid">
+          <div class="f"><label for="fName" data-i18n="f.name">Vārds</label><input class="inp" id="fName" name="name" autocomplete="name" required></div>
+          <div class="f"><label for="fPhone" data-i18n="f.phone">Tālrunis</label><input class="inp" id="fPhone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div class="f"><label for="fType" data-i18n="f.type">Kas plānots?</label>
+            <select class="inp" id="fType" name="type">
+              <option value="table" data-i18n="f.t1">Galdiņa rezervācija</option>
+              <option value="birthday" data-i18n="bq.o1">Dzimšanas dienas un jubilejas</option>
+              <option value="wedding" data-i18n="bq.o2">Kāzas un saderināšanās</option>
+              <option value="corporate" data-i18n="bq.o3">Uzņēmumu vakari</option>
+              <option value="memorial" data-i18n="bq.o4">Bēres un piemiņas mielasti</option>
+              <option value="other" data-i18n="f.t6">Cits</option>
+            </select>
+          </div>
+          <div class="f"><label for="fGuests" data-i18n="f.guests">Viesu skaits</label><input class="inp" id="fGuests" name="guests" type="number" min="1" max="200" inputmode="numeric" required></div>
+          <div class="f"><label for="fDate" data-i18n="f.date">Datums</label><input class="inp" id="fDate" name="date" type="date" required></div>
+          <div class="f"><label for="fTime" data-i18n="f.time">Laiks</label><input class="inp" id="fTime" name="time" type="time"></div>
+          <div class="f full"><label for="fNote" data-i18n="f.note">Vēlmes (nav obligāti)</label><textarea class="inp" id="fNote" name="note"></textarea></div>
+          <input class="hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        </div>
+        <p class="form-msg" id="formMsg" role="alert"></p>
+        <button class="btn btn-wine" type="submit" style="margin-top:.4rem"><svg><use href="#i-wa"/></svg><span data-i18n="f.send">Nosūtīt WhatsApp</span></button>
+      </form>
+    </div>
+  </section>
+
+  <!-- GALLERY: drop photos into img/ with these names -->
+  <section class="section alt" id="gallery">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="kicker rv"><svg><use href="#i-orn"/></svg><span data-i18n="gal.k">Galerija</span></span>
+        <h2 class="rv d1" data-i18n="gal.t">Ieskats Par-Bar</h2>
+      </div>
+      <div class="gallery rv">
+        <div class="shot w2 h2"><img src="img/bar-wall.jpg" alt="Par-Bar" loading="lazy"></div>
+        <div class="shot"><div class="ph"><svg><use href="#i-photo"/></svg><span>img/img2.jpg</span></div><img src="img/img2.jpg" alt="Par-Bar"></div>
+        <div class="shot"><div class="ph"><svg><use href="#i-photo"/></svg><span>img/img3.jpg</span></div><img src="img/img3.jpg" alt="Par-Bar"></div>
+        <div class="shot"><div class="ph"><svg><use href="#i-photo"/></svg><span>img/img4.jpg</span></div><img src="img/img4.jpg" alt="Par-Bar"></div>
+        <div class="shot"><div class="ph"><svg><use href="#i-photo"/></svg><span>img/img5.jpg</span></div><img src="img/img5.jpg" alt="Par-Bar"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker rv"><svg><use href="#i-orn"/></svg><span data-i18n="ct.k">Kontakti</span></span>
+        <h2 class="rv d1" data-i18n="ct.t">Atrodiet mūs Stacijas ielā</h2>
+      </div>
+      <div class="contact">
+        <div class="infos rv">
+          <a class="info" href="https://maps.google.com/?q=Stacijas+iela+63,+Daugavpils" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-pin"/></svg></span><span><small data-i18n="ct.addr">Adrese</small><b>Stacijas iela 63, Daugavpils</b></span></a>
+          <a class="info" href="tel:+37120219338"><span class="ic"><svg><use href="#i-phone"/></svg></span><span><small data-i18n="ct.phone">Tālrunis</small><b>+371 20 219 338</b></span></a>
+          <a class="info" href="https://wa.me/37120219338" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-wa"/></svg></span><span><small>WhatsApp</small><b>+371 20 219 338</b></span></a>
+          <a class="info" href="https://www.facebook.com/profile.php?id=61594905531083" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-fb"/></svg></span><span><small>Facebook</small><b>Par-Bar</b></span></a>
+          <div class="info hours" style="display:block">
+            <div style="display:flex;gap:1rem;align-items:center"><span class="ic"><svg><use href="#i-clock"/></svg></span><span><small data-i18n="ct.hours">Darba laiks</small><b id="hoursNow"></b></span></div>
+            <table id="hoursTable"></table>
+          </div>
+        </div>
+        <div class="map rv d1">
+          <iframe title="Par-Bar map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Stacijas%20iela%2063%2C%20Daugavpils%2C%20Latvia&z=16&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="f-top">
+      <div><img src="logo.svg" alt="Par-Bar" width="1775" height="1258" loading="lazy"></div>
+      <div>
+        <h4 data-i18n="ft.visit">Apmeklējiet</h4>
+        <p>Stacijas iela 63<br>Daugavpils, LV-5401</p>
+        <a href="tel:+37120219338" style="margin-top:.6rem">+371 20 219 338</a>
+      </div>
+      <div>
+        <h4 data-i18n="ft.nav">Navigācija</h4>
+        <a href="#menu" data-i18n="nav.menu">Ēdienkarte</a>
+        <a href="#planner" data-i18n="nav.planner">Šašliku plāns</a>
+        <a href="#week" data-i18n="nav.week">Akcijas</a>
+        <a href="#banquet" data-i18n="nav.banquet">Banketi</a>
+        <a href="https://www.facebook.com/profile.php?id=61594905531083" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="orn-line" aria-hidden="true"><svg><use href="#i-orn"/></svg></div>
+    <div class="f-bottom">
+      <span>&copy; <span id="year"></span> Par-Bar. <span data-i18n="ft.rights">Visas tiesības aizsargātas.</span></span>
+      <a href="#top" data-i18n="ft.top">Uz augšu</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="https://wa.me/37120219338" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+
+<script>
+/* =========================================================
+   SETTINGS - change these when the owner confirms them
+   ========================================================= */
+var CONFIG = {
+  phone: '37120219338',
+  /* Opening hours (24h). Placeholder until Par-Bar confirms.
+     Day index: 0 = Sunday ... 6 = Saturday. Close after midnight = e.g. '01:00'. */
+  hours: {
+    1:['11:00','23:00'], 2:['11:00','23:00'], 3:['11:00','23:00'], 4:['11:00','23:00'],
+    5:['11:00','01:00'], 6:['11:00','01:00'], 0:['10:00','23:00']
+  }
+};
+
+var I18N = {
+  lv:{
+    'meta.title':'Par-Bar - kafejnīca-bārs ar Latgales dvēseli, Daugavpils',
+    'nav.menu':'Ēdienkarte','nav.planner':'Šašliku plāns','nav.week':'Akcijas','nav.banquet':'Banketi','nav.contact':'Kontakti',
+    'cta.book':'Rezervēt','cta.table':'Rezervēt galdiņu','cta.menu':'Skatīt ēdienkarti',
+    'hero.title':'Kafejnīca-bārs ar Latgales dvēseli',
+    'hero.lead':'Šašliki uz īstām oglēm, auksts izlejamais alus un mājīga atmosfēra pašā Daugavpils centrā.',
+    'st.open':'Atvērts tagad, līdz {t}','st.closed':'Šobrīd slēgts, atveram {d} {t}','st.today':'šodien','st.tomorrow':'rīt',
+    'p1.t':'Cepts uz oglēm','p1.d':'Šašliki, ribiņas un luļa-kebabs ar īstu dūmu garšu.',
+    'p2.t':'Alus un sports','p2.d':'Izlejamais alus un spēļu tiešraides uz lielā ekrāna.',
+    'p3.t':'Banketu zāles','p3.d':'Vieta jubilejām, kāzām, piemiņas mielastiem un uzņēmumu vakariem.',
+    'about.k':'Par mums','about.t':'Latgales viesmīlība, pilsētas ritms','about.alt':'Par-Bar bārs ar brieža galvu',
+    'about.p1':'Par-Bar ir vieta, kur ienākt uz kafiju no rīta, uz šašliku vakarā un palikt uz vēl vienu alu, kad spēle ievelkas. Gaļu cepam uz oglēm, porcijas taisām godīgas, un pie mums vienmēr ir silti.',
+    'about.p2':'Ornaments mūsu logo ir latgaliešu zīme, kas nozīmē mājas un labu kompāniju. Tieši tādu sajūtu gribam, lai jūs aiznesat līdzi.',
+    'about.f1':'ēdieni no ogļu grila','about.f2':'valodas, viena atmosfēra','about.f3':'Stacijas iela, centrs',
+    'menu.k':'Ēdienkarte','menu.t':'No ogļu grila uz galda','menu.p':'Mūsu populārākie ēdieni. Pilnā ēdienkarte un dzērienu karte gaida uz vietas.',
+    'menu.note':'Cenas var mainīties. Par alergēniem jautājiet viesmīlim.',
+    'tab.grill':'Uz oglēm','tab.kitchen':'Ēdieni un uzkodas','tab.soups':'Zupas un deserti','tab.drinks':'Dzērieni',
+    'sp.t':'Cūkas stilbs','sp.d':'Ar lauku stila kartupeļiem, sautētiem kāpostiem un mārrutiem. Mūsu īpašais ēdiens.',
+    'd.classic':'Klasiskais šašliks','d.classic.d':'Cūkgaļa, sīpoli, marināde pēc mūsu receptes',
+    'd.caucasus':'Kaukāza šašliks','d.caucasus.d':'Sulīga gaļa ar kaukāziešu garšvielām',
+    'd.chicken':'Vistas šašliks','d.chicken.d':'Maigs vistas fileja uz iesma',
+    'd.lula':'Luļa-kebabs','d.lula.d':'Malta gaļa ar garšaugiem uz oglēm',
+    'd.wings':'Vistas spārniņi','d.wings.d':'Kraukšķīgi, cepti uz grila',
+    'd.ribs':'Cūkgaļas ribiņas','d.ribs.d':'Lēni ceptas, ar dūmu aromātu',
+    'd.salmon':'Laša steiks','d.salmon.d':'Lasis uz grila ar citronu',
+    'd.shak':'Šakšuka ar pītu','d.shak.d':'Olas tomātu mērcē, svaiga pīta',
+    'd.fries':'Kartupeļi frī','d.fries.d':'',
+    'd.veg':'Marinētu dārzeņu maisījums','d.veg.d':'Labākais draugs šašlikam',
+    'd.garlic':'Ķiploku grauzdiņi','d.garlic.d':'Ar ķiploku mērci, ideāli pie alus',
+    'd.cheese':'Siera grauzdiņi','d.cheese.d':'Kraukšķīgi, ar kausētu sieru',
+    'd.sauce':'Mērce','d.sauce.d':'Kečups, sarkanā, baltā vai saldskābā',
+    'd.borsch':'Borščs','d.borsch.d':'Mazā / lielā porcija',
+    'd.solyanka':'Soļanka','d.solyanka.d':'Mazā / lielā porcija',
+    'd.napoleon':'Torte "Napoleons"','d.napoleon.d':'Kārtainā kūka pēc mājas receptes',
+    'd.beer':'Izlejamais alus','d.beer.d':'Gaišais un tumšais, auksts no krāna',
+    'd.coffee':'Kafija','d.coffee.d':'Espresso, kapučīno, latte, kafija ar pienu',
+    'd.tea':'Tēja','d.tea.d':'Melnā, zaļā, augļu',
+    'd.wine':'Blue Nun vīns, pudele','d.wine.d':'Baltvīns vai sarkanvīns, 750 ml',
+    'd.soft':'Bezalkoholiskie dzērieni','d.soft.d':'Coca-Cola, Fanta, Sprite, sulas',
+    'tag.hit':'hīts',
+    'pl.k':'Šašliku plāns','pl.t':'Cik šašliku vajag jūsu kompānijai?',
+    'pl.p':'Izvēlieties cilvēku skaitu un apetīti. Mēs sarēķināsim porcijas, un pasūtījumu varat nosūtīt mums uzreiz WhatsApp.',
+    'pl.guests':'Cilvēku skaits','pl.appetite':'Apetīte','pl.a1':'Viegla','pl.a2':'Normāla','pl.a3':'Ļoti izsalkuši',
+    'pl.kinds':'Kādus šašlikus?','pl.side':'Piedevas katram','pl.yes':'Jā, frī kartupeļi','pl.no':'Nevajag',
+    'pl.your':'Jūsu pasūtījums','pl.total':'Aptuveni kopā','pl.small':'Aprēķins ir orientējošs. Lielām kompānijām iesakām pasūtīt dienu iepriekš.',
+    'pl.send':'Nosūtīt pasūtījumu WhatsApp','pl.pick':'Izvēlieties vismaz vienu šašliku',
+    'pl.msg':'Sveiki, Par-Bar! Vēlos pasūtīt šašlikus {n} cilvēkiem:','pl.sum':'Aptuveni kopā','pl.when':'Kad varu saņemt?',
+    'wk.k':'Šonedēļ Par-Bar','wk.t':'Iemesli atnākt vēlreiz','wk.sun':'Tikai svētdienās līdz 13:00',
+    'wk.offer':'2 šakšukas = <em>2 kafijas dāvanā</em>',
+    'wk.offerp':'Pasūtiet divas šakšukas ar pītu līdz 13:00 un saņemiet divas jebkuras kafijas no mums. Ņemiet līdzi kādu, ar ko kopā brokastot.',
+    'wk.live':'Akcija notiek tagad, vēl {t}','wk.next':'Nākamā akcija pēc {t}','wk.d':'d.','wk.h':'st.','wk.m':'min',
+    'wk.sport':'Sporta vakari','wk.sportt':'Lielās spēles uz <em>lielā ekrāna</em>',
+    'wk.sportp':'Eirolīgas basketbols, futbols un hokejs ar draugiem, šašliku un aukstu alu. Spēļu grafiku publicējam mūsu Facebook lapā.',
+    'wk.s1':'Eirolīga un basketbols','wk.s2':'Izlejamais alus un uzkodas spēlei','wk.fb':'Spēļu grafiks',
+    'bq.k':'Banketi un rezervācijas','bq.t':'Jūsu svētki, mūsu rūpes',
+    'bq.p':'Mums ir banketu zāles nelielām un lielām kompānijām. Sastādīsim ēdienkarti, sagatavosim galdus un parūpēsimies, lai jums atliek tikai svinēt.',
+    'bq.o1':'Dzimšanas dienas un jubilejas','bq.o2':'Kāzas un saderināšanās','bq.o3':'Uzņēmumu vakari','bq.o4':'Bēres un piemiņas mielasti',
+    'bq.form':'Pieteikums','f.name':'Vārds','f.phone':'Tālrunis','f.type':'Kas plānots?','f.t1':'Galdiņa rezervācija','f.t6':'Cits',
+    'f.guests':'Viesu skaits','f.date':'Datums','f.time':'Laiks','f.note':'Vēlmes (nav obligāti)','f.send':'Nosūtīt WhatsApp',
+    'f.err':'Lūdzu, aizpildiet iezīmētos laukus.','f.ok':'Atveram WhatsApp ar jūsu pieteikumu...',
+    'f.msg':'Sveiki, Par-Bar! Pieteikums:','f.l.type':'Veids','f.l.guests':'Viesi','f.l.date':'Datums','f.l.time':'Laiks','f.l.name':'Vārds','f.l.phone':'Tālrunis','f.l.note':'Vēlmes',
+    'gal.k':'Galerija','gal.t':'Ieskats Par-Bar',
+    'ct.k':'Kontakti','ct.t':'Atrodiet mūs Stacijas ielā','ct.addr':'Adrese','ct.phone':'Tālrunis','ct.hours':'Darba laiks',
+    'days':['Svētdiena','Pirmdiena','Otrdiena','Trešdiena','Ceturtdiena','Piektdiena','Sestdiena'],
+    'ft.visit':'Apmeklējiet','ft.nav':'Navigācija','ft.rights':'Visas tiesības aizsargātas.','ft.top':'Uz augšu'
+  },
+  ru:{
+    'meta.title':'Par-Bar - кафе-бар с душой Латгалии, Даугавпилс',
+    'nav.menu':'Меню','nav.planner':'Шашлык-план','nav.week':'Акции','nav.banquet':'Банкеты','nav.contact':'Контакты',
+    'cta.book':'Бронь','cta.table':'Забронировать столик','cta.menu':'Смотреть меню',
+    'hero.title':'Кафе-бар с душой Латгалии',
+    'hero.lead':'Шашлык на настоящих углях, холодное разливное пиво и уютная атмосфера в самом центре Даугавпилса.',
+    'st.open':'Сейчас открыто, до {t}','st.closed':'Сейчас закрыто, откроемся {d} в {t}','st.today':'сегодня','st.tomorrow':'завтра',
+    'p1.t':'На углях','p1.d':'Шашлык, рёбрышки и люля-кебаб с настоящим дымком.',
+    'p2.t':'Пиво и спорт','p2.d':'Разливное пиво и трансляции матчей на большом экране.',
+    'p3.t':'Банкетные залы','p3.d':'Для юбилеев, свадеб, поминок и корпоративов.',
+    'about.k':'О нас','about.t':'Латгальское гостеприимство, городской ритм','about.alt':'Бар Par-Bar с головой оленя',
+    'about.p1':'Par-Bar - это место, куда заходят на кофе утром, на шашлык вечером и остаются ещё на одно пиво, когда матч затягивается. Мясо жарим на углях, порции делаем честные, и у нас всегда тепло.',
+    'about.p2':'Орнамент в нашем логотипе - латгальский знак, который означает дом и хорошую компанию. Именно такое чувство мы хотим, чтобы вы уносили с собой.',
+    'about.f1':'блюд с мангала','about.f2':'языка, одна атмосфера','about.f3':'ул. Стацияс, центр',
+    'menu.k':'Меню','menu.t':'С мангала на стол','menu.p':'Наши самые популярные блюда. Полное меню и карта напитков ждут вас на месте.',
+    'menu.note':'Цены могут меняться. Об аллергенах спрашивайте официанта.',
+    'tab.grill':'На углях','tab.kitchen':'Блюда и закуски','tab.soups':'Супы и десерты','tab.drinks':'Напитки',
+    'sp.t':'Свиная рулька','sp.d':'С картофелем по-деревенски, тушёной капустой и хреном. Наше фирменное блюдо.',
+    'd.classic':'Классический шашлык','d.classic.d':'Свинина, лук, маринад по нашему рецепту',
+    'd.caucasus':'Кавказский шашлык','d.caucasus.d':'Сочное мясо с кавказскими специями',
+    'd.chicken':'Куриный шашлык','d.chicken.d':'Нежное куриное филе на шампуре',
+    'd.lula':'Люля-кебаб','d.lula.d':'Рубленое мясо с зеленью на углях',
+    'd.wings':'Куриные крылышки','d.wings.d':'Хрустящие, с гриля',
+    'd.ribs':'Свиные рёбрышки','d.ribs.d':'Томлёные, с ароматом дыма',
+    'd.salmon':'Стейк из лосося','d.salmon.d':'Лосось на гриле с лимоном',
+    'd.shak':'Шакшука с питой','d.shak.d':'Яйца в томатном соусе, свежая пита',
+    'd.fries':'Картофель фри','d.fries.d':'',
+    'd.veg':'Ассорти маринованных овощей','d.veg.d':'Лучший друг шашлыка',
+    'd.garlic':'Чесночные гренки','d.garlic.d':'С чесночным соусом, идеально к пиву',
+    'd.cheese':'Сырные гренки','d.cheese.d':'Хрустящие, с расплавленным сыром',
+    'd.sauce':'Соус','d.sauce.d':'Кетчуп, красный, белый или кисло-сладкий',
+    'd.borsch':'Борщ','d.borsch.d':'Малая / большая порция',
+    'd.solyanka':'Солянка','d.solyanka.d':'Малая / большая порция',
+    'd.napoleon':'Торт "Наполеон"','d.napoleon.d':'Слоёный торт по домашнему рецепту',
+    'd.beer':'Разливное пиво','d.beer.d':'Светлое и тёмное, холодное из крана',
+    'd.coffee':'Кофе','d.coffee.d':'Эспрессо, капучино, латте, кофе с молоком',
+    'd.tea':'Чай','d.tea.d':'Чёрный, зелёный, фруктовый',
+    'd.wine':'Вино Blue Nun, бутылка','d.wine.d':'Белое или красное, 750 мл',
+    'd.soft':'Безалкогольные напитки','d.soft.d':'Coca-Cola, Fanta, Sprite, соки',
+    'tag.hit':'хит',
+    'pl.k':'Шашлык-план','pl.t':'Сколько шашлыка нужно вашей компании?',
+    'pl.p':'Выберите количество людей и аппетит. Мы посчитаем порции, а заказ можно сразу отправить нам в WhatsApp.',
+    'pl.guests':'Количество людей','pl.appetite':'Аппетит','pl.a1':'Лёгкий','pl.a2':'Обычный','pl.a3':'Очень голодные',
+    'pl.kinds':'Какой шашлык?','pl.side':'Гарнир каждому','pl.yes':'Да, картофель фри','pl.no':'Не нужно',
+    'pl.your':'Ваш заказ','pl.total':'Примерно','pl.small':'Расчёт ориентировочный. Большим компаниям советуем заказывать за день.',
+    'pl.send':'Отправить заказ в WhatsApp','pl.pick':'Выберите хотя бы один шашлык',
+    'pl.msg':'Здравствуйте, Par-Bar! Хочу заказать шашлык на {n} чел.:','pl.sum':'Примерно','pl.when':'Когда можно забрать?',
+    'wk.k':'На этой неделе в Par-Bar','wk.t':'Поводы зайти ещё раз','wk.sun':'Только по воскресеньям до 13:00',
+    'wk.offer':'2 шакшуки = <em>2 кофе в подарок</em>',
+    'wk.offerp':'Закажите две шакшуки с питой до 13:00 и получите два любых кофе от нас. Берите с собой того, с кем хочется разделить утро.',
+    'wk.live':'Акция идёт сейчас, ещё {t}','wk.next':'Следующая акция через {t}','wk.d':'д.','wk.h':'ч.','wk.m':'мин',
+    'wk.sport':'Спортивные вечера','wk.sportt':'Большие матчи на <em>большом экране</em>',
+    'wk.sportp':'Баскетбол Евролиги, футбол и хоккей с друзьями, шашлыком и холодным пивом. Расписание трансляций публикуем на нашей странице в Facebook.',
+    'wk.s1':'Евролига и баскетбол','wk.s2':'Разливное пиво и закуски к матчу','wk.fb':'Расписание матчей',
+    'bq.k':'Банкеты и бронь','bq.t':'Ваш праздник, наша забота',
+    'bq.p':'У нас есть банкетные залы для небольших и больших компаний. Составим меню, накроем столы и позаботимся, чтобы вам оставалось только праздновать.',
+    'bq.o1':'Дни рождения и юбилеи','bq.o2':'Свадьбы и помолвки','bq.o3':'Корпоративы','bq.o4':'Поминальные обеды',
+    'bq.form':'Заявка','f.name':'Имя','f.phone':'Телефон','f.type':'Что планируете?','f.t1':'Бронь столика','f.t6':'Другое',
+    'f.guests':'Количество гостей','f.date':'Дата','f.time':'Время','f.note':'Пожелания (необязательно)','f.send':'Отправить в WhatsApp',
+    'f.err':'Пожалуйста, заполните отмеченные поля.','f.ok':'Открываем WhatsApp с вашей заявкой...',
+    'f.msg':'Здравствуйте, Par-Bar! Заявка:','f.l.type':'Тип','f.l.guests':'Гости','f.l.date':'Дата','f.l.time':'Время','f.l.name':'Имя','f.l.phone':'Телефон','f.l.note':'Пожелания',
+    'gal.k':'Галерея','gal.t':'Загляните в Par-Bar',
+    'ct.k':'Контакты','ct.t':'Ждём вас на улице Стацияс','ct.addr':'Адрес','ct.phone':'Телефон','ct.hours':'Часы работы',
+    'days':['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'],
+    'ft.visit':'Приходите','ft.nav':'Навигация','ft.rights':'Все права защищены.','ft.top':'Наверх'
+  },
+  en:{
+    'meta.title':'Par-Bar - a café-bar with a Latgalian soul, Daugavpils',
+    'nav.menu':'Menu','nav.planner':'Skewer planner','nav.week':'Offers','nav.banquet':'Banquets','nav.contact':'Contact',
+    'cta.book':'Book','cta.table':'Book a table','cta.menu':'See the menu',
+    'hero.title':'A café-bar with a Latgalian soul',
+    'hero.lead':'Shashlik over real charcoal, cold draft beer and a cosy atmosphere right in the centre of Daugavpils.',
+    'st.open':'Open now, until {t}','st.closed':'Closed now, we open {d} at {t}','st.today':'today','st.tomorrow':'tomorrow',
+    'p1.t':'Charcoal grilled','p1.d':'Shashlik, ribs and lula kebab with a real smoky taste.',
+    'p2.t':'Beer and sports','p2.d':'Draft beer and live matches on the big screen.',
+    'p3.t':'Banquet halls','p3.d':'For birthdays, weddings, memorial dinners and company nights.',
+    'about.k':'About us','about.t':'Latgalian hospitality, city rhythm','about.alt':'Par-Bar bar with a deer head',
+    'about.p1':'Par-Bar is a place to drop in for coffee in the morning, shashlik in the evening, and one more beer when the match goes to overtime. We grill meat over charcoal, keep portions honest, and it is always warm in here.',
+    'about.p2':'The ornament in our logo is a Latgalian symbol that stands for home and good company. That is exactly the feeling we want you to take with you.',
+    'about.f1':'dishes from the charcoal grill','about.f2':'languages, one atmosphere','about.f3':'Stacijas street, centre',
+    'menu.k':'Menu','menu.t':'From the charcoal grill to your table','menu.p':'Our most popular dishes. The full menu and drinks list are waiting for you on site.',
+    'menu.note':'Prices may change. Ask your waiter about allergens.',
+    'tab.grill':'From the grill','tab.kitchen':'Dishes and snacks','tab.soups':'Soups and desserts','tab.drinks':'Drinks',
+    'sp.t':'Pork knuckle','sp.d':'With country-style potatoes, stewed cabbage and horseradish. Our signature dish.',
+    'd.classic':'Classic shashlik','d.classic.d':'Pork, onion and our own marinade',
+    'd.caucasus':'Caucasian shashlik','d.caucasus.d':'Juicy meat with Caucasian spices',
+    'd.chicken':'Chicken shashlik','d.chicken.d':'Tender chicken fillet on the skewer',
+    'd.lula':'Lula kebab','d.lula.d':'Minced meat with herbs, over charcoal',
+    'd.wings':'Chicken wings','d.wings.d':'Crispy, from the grill',
+    'd.ribs':'Pork ribs','d.ribs.d':'Slow-cooked with a smoky aroma',
+    'd.salmon':'Salmon steak','d.salmon.d':'Grilled salmon with lemon',
+    'd.shak':'Shakshuka with pita','d.shak.d':'Eggs in tomato sauce, fresh pita',
+    'd.fries':'French fries','d.fries.d':'',
+    'd.veg':'Pickled vegetable platter','d.veg.d':'Shashlik\'s best friend',
+    'd.garlic':'Garlic croutons','d.garlic.d':'With garlic sauce, perfect with beer',
+    'd.cheese':'Cheese croutons','d.cheese.d':'Crispy, with melted cheese',
+    'd.sauce':'Sauce','d.sauce.d':'Ketchup, red, white or sweet and sour',
+    'd.borsch':'Borscht','d.borsch.d':'Small / large portion',
+    'd.solyanka':'Solyanka','d.solyanka.d':'Small / large portion',
+    'd.napoleon':'"Napoleon" cake','d.napoleon.d':'Layered cake, home recipe',
+    'd.beer':'Draft beer','d.beer.d':'Light and dark, cold from the tap',
+    'd.coffee':'Coffee','d.coffee.d':'Espresso, cappuccino, latte, coffee with milk',
+    'd.tea':'Tea','d.tea.d':'Black, green, fruit',
+    'd.wine':'Blue Nun wine, bottle','d.wine.d':'White or red, 750 ml',
+    'd.soft':'Soft drinks','d.soft.d':'Coca-Cola, Fanta, Sprite, juices',
+    'tag.hit':'hit',
+    'pl.k':'Skewer planner','pl.t':'How much shashlik does your group need?',
+    'pl.p':'Pick the number of people and how hungry you are. We will work out the portions, and you can send the order straight to us on WhatsApp.',
+    'pl.guests':'Number of people','pl.appetite':'Appetite','pl.a1':'Light','pl.a2':'Normal','pl.a3':'Very hungry',
+    'pl.kinds':'Which shashlik?','pl.side':'A side for everyone','pl.yes':'Yes, fries','pl.no':'No thanks',
+    'pl.your':'Your order','pl.total':'Approx. total','pl.small':'This is an estimate. For big groups we suggest ordering a day ahead.',
+    'pl.send':'Send the order on WhatsApp','pl.pick':'Choose at least one shashlik',
+    'pl.msg':'Hi Par-Bar! I would like to order shashlik for {n} people:','pl.sum':'Approx. total','pl.when':'When can I pick it up?',
+    'wk.k':'This week at Par-Bar','wk.t':'Reasons to come back','wk.sun':'Sundays only, until 13:00',
+    'wk.offer':'2 shakshukas = <em>2 free coffees</em>',
+    'wk.offerp':'Order two shakshukas with pita before 13:00 and get two coffees of your choice on us. Bring someone to share breakfast with.',
+    'wk.live':'The offer is on now, {t} left','wk.next':'Next offer in {t}','wk.d':'d','wk.h':'h','wk.m':'min',
+    'wk.sport':'Sports nights','wk.sportt':'Big games on the <em>big screen</em>',
+    'wk.sportp':'EuroLeague basketball, football and hockey with friends, shashlik and cold beer. We post the match schedule on our Facebook page.',
+    'wk.s1':'EuroLeague and basketball','wk.s2':'Draft beer and match snacks','wk.fb':'Match schedule',
+    'bq.k':'Banquets and bookings','bq.t':'Your celebration, our care',
+    'bq.p':'We have banquet halls for small and large groups. We will put together the menu, set the tables and take care of everything, so all you have to do is celebrate.',
+    'bq.o1':'Birthdays and anniversaries','bq.o2':'Weddings and engagements','bq.o3':'Company nights','bq.o4':'Memorial dinners',
+    'bq.form':'Request','f.name':'Name','f.phone':'Phone','f.type':'What are you planning?','f.t1':'Table booking','f.t6':'Other',
+    'f.guests':'Number of guests','f.date':'Date','f.time':'Time','f.note':'Wishes (optional)','f.send':'Send on WhatsApp',
+    'f.err':'Please fill in the highlighted fields.','f.ok':'Opening WhatsApp with your request...',
+    'f.msg':'Hi Par-Bar! Request:','f.l.type':'Type','f.l.guests':'Guests','f.l.date':'Date','f.l.time':'Time','f.l.name':'Name','f.l.phone':'Phone','f.l.note':'Wishes',
+    'gal.k':'Gallery','gal.t':'A look inside Par-Bar',
+    'ct.k':'Contact','ct.t':'Find us on Stacijas street','ct.addr':'Address','ct.phone':'Phone','ct.hours':'Opening hours',
+    'days':['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+    'ft.visit':'Visit us','ft.nav':'Navigation','ft.rights':'All rights reserved.','ft.top':'Back to top'
+  }
+};
+
+/* Menu: prices taken from the Par-Bar menu photos */
+var MENU = {
+  grill:{special:true, items:[
+    ['classic','12.00','hit'],['caucasus','12.00'],['chicken','12.00'],['lula','12.00'],
+    ['wings','9.00'],['ribs','14.50'],['salmon','15.00']
+  ]},
+  kitchen:{items:[['shak','7.50','hit'],['veg','6.50'],['garlic','5.50'],['cheese','6.50'],['fries','2.50'],['sauce','1.00']]},
+  soups:{items:[['borsch','4.00 / 5.50'],['solyanka','4.00 / 5.50'],['napoleon','4.00']]},
+  drinks:{items:[['beer',''],['coffee',''],['tea',''],['soft',''],['wine','12.00']]}
+};
+var PRICES = {classic:12, caucasus:12, chicken:12, lula:12, ribs:14.5, fries:2.5};
+
+(function(){
+  var html=document.documentElement, body=document.body;
+  var lang=html.getAttribute('lang')||'lv';
+  function t(k){ var d=I18N[lang]||I18N.lv; return d[k]!==undefined?d[k]:(I18N.lv[k]!==undefined?I18N.lv[k]:k); }
+  function fmt(s,o){ return s.replace(/\{(\w+)\}/g,function(_,k){return o[k];}); }
+  function euro(n){ return (Math.round(n*100)/100).toFixed(2).replace(/\.00$/,'')+' €'; }
+
+  /* ---------- menu render ---------- */
+  function renderMenu(){
+    var wrap=document.getElementById('menuPanels'), active=(document.querySelector('.tab[aria-selected="true"]')||{}).dataset;
+    active=active?active.tab:'grill';
+    var out='';
+    Object.keys(MENU).forEach(function(key){
+      var g=MENU[key], h='<div class="panel'+(key===active?' on':'')+'" data-panel="'+key+'" role="tabpanel">';
+      if(g.special){
+        h+='<div class="special"><svg><use href="#i-fire"/></svg><div><h3>'+t('sp.t')+'</h3><p>'+t('sp.d')+'</p></div><span class="p">17.00 €</span></div>';
+      }
+      h+='<div class="dishes">';
+      g.items.forEach(function(it){
+        var d=t('d.'+it[0]+'.d');
+        h+='<div class="dish"><div><span class="n">'+t('d.'+it[0])+(it[2]?'<span class="tag">'+t('tag.hit')+'</span>':'')+'</span>'+(d?'<span class="d">'+d+'</span>':'')+'</div><span class="dots"></span>'+(it[1]?'<span class="p">'+it[1]+' €</span>':'')+'</div>';
+      });
+      h+='</div>';
+      if(key==='kitchen'){ h+=''; }
+      h+='</div>'; out+=h;
+    });
+    wrap.innerHTML=out;
+  }
+  document.getElementById('menuTabs').addEventListener('click',function(e){
+    var b=e.target.closest('.tab'); if(!b) return;
+    document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false');});
+    document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.dataset.panel===b.dataset.tab);});
+  });
+
+  /* ---------- language ---------- */
+  function applyLang(l){
+    lang=l; html.setAttribute('lang',l);
+    try{localStorage.setItem('parbar-lang',l);}catch(e){}
+    document.title=t('meta.title');
+    document.querySelectorAll('[data-i18n]').forEach(function(el){ el.textContent=t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){ el.innerHTML=t(el.dataset.i18nHtml); });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function(el){ el.alt=t(el.dataset.i18nAlt); });
+    document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed',b.dataset.lang===l?'true':'false'); });
+    renderMenu(); renderHours(); updateStatus(); updateSunday(); calc();
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click',function(){ applyLang(b.dataset.lang); }); });
+
+  /* ---------- theme ---------- */
+  document.getElementById('themeBtn').addEventListener('click',function(){
+    var next=html.getAttribute('data-theme')==='dark'?'light':'dark';
+    html.setAttribute('data-theme',next); try{localStorage.setItem('parbar-theme',next);}catch(e){}
+  });
+
+  /* ---------- header + menu ---------- */
+  var header=document.getElementById('header'), hero=document.getElementById('hero'), wa=document.getElementById('waFloat');
+  function onScroll(){
+    var y=window.scrollY, h=hero.offsetHeight-80;
+    header.classList.toggle('scrolled',y>40);
+    body.classList.toggle('top',y<h);
+    wa.classList.toggle('show',y>h*0.6);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  var burger=document.getElementById('burger'), mm=document.getElementById('mMenu');
+  function setMenu(open){
+    burger.setAttribute('aria-expanded',open?'true':'false'); mm.classList.toggle('open',open);
+    mm.setAttribute('aria-hidden',open?'false':'true'); body.classList.toggle('menu-open',open);
+    body.style.overflow=open?'hidden':'';
+  }
+  burger.addEventListener('click',function(){ setMenu(burger.getAttribute('aria-expanded')!=='true'); });
+  mm.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ setMenu(false); }); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') setMenu(false); });
+  window.addEventListener('resize',function(){ if(window.innerWidth>1080) setMenu(false); });
+
+  /* ---------- video ---------- */
+  var v=document.getElementById('heroVideo'), vb=document.getElementById('vidBtn');
+  vb.addEventListener('click',function(){ if(v.paused){v.play();vb.classList.remove('paused');}else{v.pause();vb.classList.add('paused');} });
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){ v.pause(); v.removeAttribute('autoplay'); vb.classList.add('paused'); }
+
+  /* ---------- hours + open status ---------- */
+  function mins(s){ var p=s.split(':'); return +p[0]*60+ +p[1]; }
+  function renderHours(){
+    var tb=document.getElementById('hoursTable'), days=t('days'), today=new Date().getDay(), rows='';
+    [1,2,3,4,5,6,0].forEach(function(d){ var hrs=CONFIG.hours[d];
+      rows+='<tr'+(d===today?' class="today"':'')+'><td>'+days[d]+'</td><td>'+(hrs?hrs[0]+' - '+hrs[1]:'-')+'</td></tr>'; });
+    tb.innerHTML=rows;
+  }
+  function openState(now){
+    now=now||new Date(); var d=now.getDay(), m=now.getHours()*60+now.getMinutes();
+    // yesterday's late shift past midnight
+    var y=CONFIG.hours[(d+6)%7];
+    if(y && mins(y[1])<mins(y[0]) && m<mins(y[1])) return {open:true,until:y[1]};
+    var h=CONFIG.hours[d];
+    if(h){ var o=mins(h[0]), c=mins(h[1]); if(c<=o) c+=1440;
+      if(m>=o && m<c) return {open:true,until:h[1]};
+      if(m<o) return {open:false,day:t('st.today'),at:h[0]}; }
+    for(var i=1;i<=7;i++){ var n=CONFIG.hours[(d+i)%7]; if(n) return {open:false,day:i===1?t('st.tomorrow'):t('days')[(d+i)%7].toLowerCase(),at:n[0]}; }
+    return null;
+  }
+  function updateStatus(){
+    var s=openState(), el=document.getElementById('status'), tx=document.getElementById('statusText'), hn=document.getElementById('hoursNow');
+    if(!s){ el.style.display='none'; return; }
+    var txt=s.open?fmt(t('st.open'),{t:s.until}):fmt(t('st.closed'),{d:s.day,t:s.at});
+    el.classList.toggle('open',s.open); tx.textContent=txt; hn.textContent=txt;
+  }
+
+  /* ---------- Sunday offer countdown ---------- */
+  function dur(ms){ var m=Math.max(0,Math.round(ms/60000)), d=Math.floor(m/1440), h=Math.floor(m%1440/60), mm=m%60;
+    return (d?d+' '+t('wk.d')+' ':'')+(d||h?h+' '+t('wk.h')+' ':'')+(d?'':mm+' '+t('wk.m')); }
+  function updateSunday(){
+    var now=new Date(), b=document.getElementById('sunBadge');
+    var start=new Date(now); start.setHours(CONFIG.hours[0]?+CONFIG.hours[0][0].split(':')[0]:10,0,0,0);
+    var end=new Date(now); end.setHours(13,0,0,0);
+    if(now.getDay()===0 && now>=start && now<end){ b.className='badge live'; b.innerHTML='<i></i>'+fmt(t('wk.live'),{t:dur(end-now)}); return; }
+    var add=(7-now.getDay())%7; if(add===0 && now>=start) add=7;
+    start.setDate(start.getDate()+add);
+    b.className='badge'; b.textContent=fmt(t('wk.next'),{t:dur(start-now)});
+  }
+  setInterval(function(){ updateStatus(); updateSunday(); },60000);
+
+  /* ---------- skewer planner ---------- */
+  var g=4, app=1, sides=1, gR=document.getElementById('gRange'), gO=document.getElementById('gOut');
+  function setG(n){ g=Math.max(1,Math.min(30,n)); gR.value=g; gO.textContent=g; calc(); }
+  gR.addEventListener('input',function(){ setG(+gR.value); });
+  document.getElementById('gMinus').addEventListener('click',function(){ setG(g-1); });
+  document.getElementById('gPlus').addEventListener('click',function(){ setG(g+1); });
+  function single(groupId,cb){ var box=document.getElementById(groupId); box.addEventListener('click',function(e){ var b=e.target.closest('.opt'); if(!b) return;
+    box.querySelectorAll('.opt').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');}); cb(b); calc(); }); }
+  single('appetite',function(b){ app=+b.dataset.v; });
+  single('sides',function(b){ sides=+b.dataset.s; });
+  document.getElementById('kinds').addEventListener('click',function(e){ var b=e.target.closest('.opt'); if(!b) return;
+    b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true'); calc(); });
+  function calc(){
+    var kinds=[].slice.call(document.querySelectorAll('#kinds .opt[aria-pressed="true"]')).map(function(b){return b.dataset.k;});
+    var list=document.getElementById('plList'), send=document.getElementById('plSend'), total=0, lines=[], rows='';
+    if(!kinds.length){ list.innerHTML='<li><span>'+t('pl.pick')+'</span><span></span></li>'; document.getElementById('plTotal').textContent='0 €'; send.style.opacity='.5'; send.style.pointerEvents='none'; return; }
+    send.style.opacity=''; send.style.pointerEvents='';
+    var portions=Math.max(1,Math.round(g*app)), base=Math.floor(portions/kinds.length), extra=portions%kinds.length;
+    kinds.forEach(function(k,i){ var n=base+(i<extra?1:0); if(!n) return; var p=n*PRICES[k]; total+=p;
+      rows+='<li><span>'+n+'× '+t('d.'+k)+'</span><span>'+euro(p)+'</span></li>'; lines.push(n+'x '+t('d.'+k)); });
+    if(sides){ var f=g*PRICES.fries; total+=f; rows+='<li><span>'+g+'× '+t('d.fries')+'</span><span>'+euro(f)+'</span></li>'; lines.push(g+'x '+t('d.fries')); }
+    list.innerHTML=rows; document.getElementById('plTotal').textContent=euro(total);
+    var msg=fmt(t('pl.msg'),{n:g})+'\n- '+lines.join('\n- ')+'\n'+t('pl.sum')+': '+euro(total)+'\n'+t('pl.when');
+    send.href='https://wa.me/'+CONFIG.phone+'?text='+encodeURIComponent(msg);
+  }
+
+  /* ---------- banquet form -> WhatsApp ---------- */
+  var form=document.getElementById('bqForm'), msgEl=document.getElementById('formMsg');
+  var dateInp=document.getElementById('fDate'); dateInp.min=new Date().toISOString().slice(0,10);
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(form.company.value) return;
+    var bad=false;
+    ['name','phone','guests','date'].forEach(function(n){ var el=form[n], ok=el.value.trim()!=='' && el.checkValidity();
+      el.closest('.f').classList.toggle('err',!ok); if(!ok) bad=true; });
+    if(bad){ msgEl.textContent=t('f.err'); return; }
+    var sel=form.type, typeTxt=sel.options[sel.selectedIndex].textContent;
+    var lines=[t('f.msg'),t('f.l.type')+': '+typeTxt,t('f.l.guests')+': '+form.guests.value,t('f.l.date')+': '+form.date.value];
+    if(form.time.value) lines.push(t('f.l.time')+': '+form.time.value);
+    lines.push(t('f.l.name')+': '+form.name.value.trim(), t('f.l.phone')+': '+form.phone.value.trim());
+    if(form.note.value.trim()) lines.push(t('f.l.note')+': '+form.note.value.trim());
+    msgEl.textContent=t('f.ok');
+    window.open('https://wa.me/'+CONFIG.phone+'?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
+  });
+  form.addEventListener('input',function(e){ var f=e.target.closest('.f'); if(f) f.classList.remove('err'); });
+
+  /* ---------- gallery: show a placeholder until the photo is added ---------- */
+  document.querySelectorAll('.shot img').forEach(function(img){
+    function miss(){ img.closest('.shot').classList.add('missing'); }
+    if(img.complete && img.naturalWidth===0) miss(); img.addEventListener('error',miss);
+  });
+
+  /* ---------- reveal (fade only) ---------- */
+  var io='IntersectionObserver' in window ? new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('shown'); io.unobserve(en.target);} }); },{rootMargin:'0px 0px -8% 0px'}) : null;
+  document.querySelectorAll('.rv').forEach(function(el){ io?io.observe(el):el.classList.add('shown'); });
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+  applyLang(lang);
+  window.addEventListener('load',function(){ body.classList.add('loaded'); });
+  setTimeout(function(){ body.classList.add('loaded'); },1200);
+})();
+</script>
+</body>
+</html>
